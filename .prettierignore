@@ -1,0 +1,8 @@
+*.txt
+
+# Ignore artifacts:
+build
+coverage
+
+# Ignore shadcn ui components:
+src/components/ui
