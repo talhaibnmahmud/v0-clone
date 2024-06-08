@@ -13,9 +13,8 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 
-import { models, types } from "@/app/data/models";
-import { presets } from "@/app/data/presets";
 import { CodeViewer } from "@/components/code-viewer";
+import { HtmlPreview } from "@/components/html-preview";
 import { MaxLengthSelector } from "@/components/maxlength-selector";
 import { ModelSelector } from "@/components/model-selector";
 import { PresetActions } from "@/components/preset-actions";
@@ -24,13 +23,19 @@ import { PresetSelector } from "@/components/preset-selector";
 import { PresetShare } from "@/components/preset-share";
 import { TemperatureSelector } from "@/components/temperature-selector";
 import { TopPSelector } from "@/components/top-p-selector";
+import { models, types } from "@/data/models";
+import { presets } from "@/data/presets";
+import { getData } from "@/utils/get-data";
 
 export const metadata: Metadata = {
   title: "Playground",
   description: "The OpenAI Playground built using the components.",
 };
 
-export default function PlaygroundPage() {
+export default async function PlaygroundPage() {
+  // const data = await fetchHtmlContent();
+  const data = await getData();
+
   return (
     <>
       <div className="md:hidden">
@@ -267,12 +272,14 @@ export default function PlaygroundPage() {
                 </TabsContent>
                 <TabsContent value="insert" className="mt-0 border-0 p-0">
                   <div className="flex flex-col space-y-4">
-                    <div className="grid h-full grid-rows-2 gap-6 lg:grid-cols-2 lg:grid-rows-1">
-                      <Textarea
+                    <div className="grid h-full">
+                      {/* <Textarea
                         placeholder="We're writing to [inset]. Congrats from OpenAI!"
                         className="h-full min-h-[300px] lg:min-h-[700px] xl:min-h-[700px]"
-                      />
-                      <div className="rounded-md border bg-muted"></div>
+                      /> */}
+                      <div className="rounded-md border bg-transparent p-4">
+                        <HtmlPreview htmlContent={data.content} />
+                      </div>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button>Submit</Button>
