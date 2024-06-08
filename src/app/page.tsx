@@ -13,8 +13,6 @@ import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 
-import { models, types } from "@/app/data/models";
-import { presets } from "@/app/data/presets";
 import { CodeViewer } from "@/components/code-viewer";
 import { MaxLengthSelector } from "@/components/maxlength-selector";
 import { ModelSelector } from "@/components/model-selector";
@@ -24,6 +22,8 @@ import { PresetSelector } from "@/components/preset-selector";
 import { PresetShare } from "@/components/preset-share";
 import { TemperatureSelector } from "@/components/temperature-selector";
 import { TopPSelector } from "@/components/top-p-selector";
+import { models, types } from "@/data/models";
+import { presets } from "@/data/presets";
 
 export const metadata: Metadata = {
   title: "Playground",

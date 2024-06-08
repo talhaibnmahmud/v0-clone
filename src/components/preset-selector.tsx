@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
-import type { Preset } from "@/app/data/presets";
+import type { Preset } from "@/data/presets";
 
 interface PresetSelectorProps extends PopoverProps {
   presets: Preset[];
