@@ -1,5 +1,5 @@
 export const fetchHtmlContent = async () => {
-  const response = await fetch("http://localhost:3000/api/html-content", {
+  const response = await fetch("api/html-content", {
     method: "GET",
     headers: {
       Accept: "application/json",

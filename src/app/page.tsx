@@ -25,7 +25,7 @@ import { TemperatureSelector } from "@/components/temperature-selector";
 import { TopPSelector } from "@/components/top-p-selector";
 import { models, types } from "@/data/models";
 import { presets } from "@/data/presets";
-import { fetchHtmlContent } from "@/utils/api";
+import { getData } from "@/utils/get-data";
 
 export const metadata: Metadata = {
   title: "Playground",
@@ -33,7 +33,8 @@ export const metadata: Metadata = {
 };
 
 export default async function PlaygroundPage() {
-  const data = await fetchHtmlContent();
+  // const data = await fetchHtmlContent();
+  const data = await getData();
 
   return (
     <>
