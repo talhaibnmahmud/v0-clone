@@ -68,7 +68,7 @@ export default async function PlaygroundPage() {
           </div>
         </div>
         <Separator />
-        <Tabs defaultValue="complete" className="flex-1">
+        <Tabs defaultValue="insert" className="flex-1">
           <div className="container h-full py-6">
             <div className="grid h-full items-stretch gap-6 md:grid-cols-[1fr_200px]">
               <div className="hidden flex-col space-y-4 sm:flex md:order-2">
@@ -87,7 +87,7 @@ export default async function PlaygroundPage() {
                     </HoverCardContent>
                   </HoverCard>
                   <TabsList className="grid grid-cols-3">
-                    <TabsTrigger value="complete">
+                    {/* <TabsTrigger value="complete">
                       <span className="sr-only">Complete</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +152,7 @@ export default async function PlaygroundPage() {
                           fill="currentColor"
                         ></rect>
                       </svg>
-                    </TabsTrigger>
+                    </TabsTrigger> */}
                     <TabsTrigger value="insert">
                       <span className="sr-only">Insert</span>
                       <svg
@@ -193,7 +193,7 @@ export default async function PlaygroundPage() {
                         ></rect>
                       </svg>
                     </TabsTrigger>
-                    <TabsTrigger value="edit">
+                    {/* <TabsTrigger value="edit">
                       <span className="sr-only">Edit</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +246,7 @@ export default async function PlaygroundPage() {
                           fill="currentColor"
                         ></path>
                       </svg>
-                    </TabsTrigger>
+                    </TabsTrigger> */}
                   </TabsList>
                 </div>
                 <ModelSelector types={types} models={models} />
@@ -255,21 +255,6 @@ export default async function PlaygroundPage() {
                 <TopPSelector defaultValue={[0.9]} />
               </div>
               <div className="md:order-1">
-                <TabsContent value="complete" className="mt-0 border-0 p-0">
-                  <div className="flex h-full flex-col space-y-4">
-                    <Textarea
-                      placeholder="Write a tagline for an ice cream shop"
-                      className="min-h-[400px] flex-1 p-4 md:min-h-[700px] lg:min-h-[700px]"
-                    />
-                    <div className="flex items-center space-x-2">
-                      <Button>Submit</Button>
-                      <Button variant="secondary">
-                        <span className="sr-only">Show history</span>
-                        <CounterClockwiseClockIcon className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </TabsContent>
                 <TabsContent value="insert" className="mt-0 border-0 p-0">
                   <div className="flex flex-col space-y-4">
                     <div className="grid h-full">
@@ -281,6 +266,21 @@ export default async function PlaygroundPage() {
                         <HtmlPreview htmlContent={data.content} />
                       </div>
                     </div>
+                    <div className="flex items-center space-x-2">
+                      <Button>Submit</Button>
+                      <Button variant="secondary">
+                        <span className="sr-only">Show history</span>
+                        <CounterClockwiseClockIcon className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </div>
+                </TabsContent>
+                <TabsContent value="complete" className="mt-0 border-0 p-0">
+                  <div className="flex h-full flex-col space-y-4">
+                    <Textarea
+                      placeholder="Write a tagline for an ice cream shop"
+                      className="min-h-[400px] flex-1 p-4 md:min-h-[700px] lg:min-h-[700px]"
+                    />
                     <div className="flex items-center space-x-2">
                       <Button>Submit</Button>
                       <Button variant="secondary">
