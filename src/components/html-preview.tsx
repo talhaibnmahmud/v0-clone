@@ -1,14 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+
+import useHtmlStore from "@/stores/html";
 
 export function HtmlPreview({ htmlContent }: { htmlContent: TrustedHTML }) {
-  const [html, setHtml] = useState(String(htmlContent) as unknown as string);
+  const { html, setHtml } = useHtmlStore();
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
-    console.log(htmlContent);
-  }, [htmlContent]);
+    setHtml(String(htmlContent));
+  }, [htmlContent, setHtml]);
+
+  useEffect(() => {
+    console.log(html);
+  }, [html]);
 
   useEffect(() => {
     if (!iframeRef.current) return;
@@ -28,8 +34,6 @@ export function HtmlPreview({ htmlContent }: { htmlContent: TrustedHTML }) {
     if (!iframeDoc) return;
 
     const newContent = iframeDoc.documentElement.outerHTML;
-    console.log(newContent);
-
     setHtml(newContent);
   };
 
