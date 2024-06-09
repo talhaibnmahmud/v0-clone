@@ -47,14 +47,14 @@ export function PresetActions() {
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onSelect={() => setIsOpen(true)}>
-            Content filter preferences
+            Update preferences
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem
             onSelect={() => setShowDeleteDialog(true)}
             className="text-red-600"
           >
-            Delete preset
+            Delete content
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -15,16 +15,9 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { CodeViewer } from "@/components/code-viewer";
 import { HtmlPreview } from "@/components/html-preview";
-import { MaxLengthSelector } from "@/components/maxlength-selector";
-import { ModelSelector } from "@/components/model-selector";
 import { PresetActions } from "@/components/preset-actions";
 import { PresetSave } from "@/components/preset-save";
-import { PresetSelector } from "@/components/preset-selector";
 import { PresetShare } from "@/components/preset-share";
-import { TemperatureSelector } from "@/components/temperature-selector";
-import { TopPSelector } from "@/components/top-p-selector";
-import { models, types } from "@/data/models";
-import { presets } from "@/data/presets";
 import { getData } from "@/utils/get-data";
 
 export const metadata: Metadata = {
@@ -56,9 +49,11 @@ export default async function PlaygroundPage() {
       </div>
       <div className="hidden h-full flex-col md:flex">
         <div className="container flex flex-col items-start justify-between space-y-2 py-4 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
-          <h2 className="text-lg font-semibold">Playground</h2>
+          <h2 className="text-lg font-semibold whitespace-nowrap">
+            AI Playground
+          </h2>
           <div className="ml-auto flex w-full space-x-2 sm:justify-end">
-            <PresetSelector presets={presets} />
+            {/* <PresetSelector presets={presets} /> */}
             <PresetSave />
             <div className="hidden space-x-2 md:flex">
               <CodeViewer />
@@ -76,7 +71,7 @@ export default async function PlaygroundPage() {
                   <HoverCard openDelay={200}>
                     <HoverCardTrigger asChild>
                       <span className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                        Mode
+                        Revisions
                       </span>
                     </HoverCardTrigger>
                     <HoverCardContent className="w-[320px] text-sm" side="left">
@@ -249,10 +244,10 @@ export default async function PlaygroundPage() {
                     </TabsTrigger> */}
                   </TabsList>
                 </div>
-                <ModelSelector types={types} models={models} />
-                <TemperatureSelector defaultValue={[0.56]} />
-                <MaxLengthSelector defaultValue={[256]} />
-                <TopPSelector defaultValue={[0.9]} />
+                {/* <ModelSelector types={types} models={models} /> */}
+                {/* <TemperatureSelector defaultValue={[0.56]} /> */}
+                {/* <MaxLengthSelector defaultValue={[256]} /> */}
+                {/* <TopPSelector defaultValue={[0.9]} /> */}
               </div>
               <div className="md:order-1">
                 <TabsContent value="insert" className="mt-0 border-0 p-0">
